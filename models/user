@@ -18,11 +18,13 @@ const dataSchema = new mongoose.Schema({
         type: String
     },
     phone: {
+        unique: true,
         required: true,
         type: String
     },
     email: {
-        required: false,
+        unique: true,
+        required: true,
         type: String
     },
     image: {
