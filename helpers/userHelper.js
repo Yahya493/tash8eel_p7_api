@@ -1,19 +1,19 @@
 const User = require('../models/user')
 
 const insertUser = async (req, res) => {
-    // const user = new User({
-    //     name: req.body.name,
-    //     password: req.body.password,
-    //     birthDate: req.body.birthDate,
-    //     address: req.body.address,
-    //     phone: req.body.phone,
-    //     email: req.body.email,
-    //     image: req.body.image,
-    //     type: req.body.type,
-    //     description: req.body.description
-    // })
+    const user = new User({
+        name: req.body.name,
+        password: req.body.password,
+        // birthDate: req.body.birthDate,
+        // address: req.body.address,
+        // phone: req.body.phone,
+        // email: req.body.email,
+        // image: req.body.image,
+        // type: req.body.type,
+        // description: req.body.description
+    })
 
-    const user = new User(req.body)
+    // const user = new User(req.body)
 
     try {
         const dataToSave = await user.save()
@@ -48,7 +48,10 @@ const deleteUser = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         const id = req.params.id
-        const updatedUser = req.body
+        const updatedUser = {
+            name: req.body.name,
+            password: req.body.password,
+        }
         const options = {new: true}
 
         const data = await User.findByIdAndUpdate(id, updatedUser, options)
