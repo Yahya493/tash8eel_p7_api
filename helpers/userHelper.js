@@ -34,6 +34,17 @@ const getUserById = async (req, res) => {
     }
 }
 
+const getUserByName = async (req, res) => {
+    try {
+        console.log(req.params)
+        const users = await User.find({name: req.query.name})
+        res.send(users[0])
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
 const deleteUser = async (req, res) => {
     try {
         const user = await User.findByIdAndRemove(req.params.id)
@@ -65,6 +76,7 @@ const updateUser = async (req, res) => {
 module.exports = {
     insertUser,
     getUserById,
+    getUserByName,
     deleteUser,
     updateUser,
 

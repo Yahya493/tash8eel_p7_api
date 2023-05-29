@@ -1,5 +1,5 @@
 const express = require('express')
-const { insertUser, deleteUser, getUserById, updateUser } = require('../helpers/userHelper')
+const { insertUser, deleteUser, getUserById, getUserByName, updateUser } = require('../helpers/userHelper')
 const { insertDriver, deleteDriver, getDriverById, updateDriver } = require('../helpers/driverHelper')
 const { insertBus, deleteBus, getBusById, updateBus } = require('../helpers/busHelper')
 const { insertMilestone, deleteMilestone, getMilestoneById, updateMilestone } = require('../helpers/milestoneHelper')
@@ -10,6 +10,7 @@ module.exports = router
 router.post('/insertUser', insertUser)
 router.delete('/deleteUser/:id', deleteUser)
 router.get('/users/:id', getUserById)
+router.get('/users', getUserByName)
 router.patch('/updateUser/:id', updateUser)
 
 router.post('/insertDriver', insertDriver)
