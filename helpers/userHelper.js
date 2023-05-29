@@ -36,7 +36,6 @@ const getUserById = async (req, res) => {
 
 const getUserByName = async (req, res) => {
     try {
-        console.log(req.params)
         const users = await User.find({name: req.query.name})
         res.send(users[0])
     }
