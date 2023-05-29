@@ -9,7 +9,12 @@ id = bded0939-a922-4d07-afcf-9f3cf9b479a7
 
 [config.relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"27341315-f44a9cf9-a05f-4833-aaee-74538bff6cbb","path":"tash8eel_p7_api.json","metaData":{}}
+files[] = {"id":"27341315-b16b240b-df02-4750-b55f-653d8f189d65","path":"Bus.json","metaData":{}}
+files[] = {"id":"27341315-a1859417-e070-4b62-a0cf-58b37a8568e9","path":"Driver.json","metaData":{}}
+files[] = {"id":"27341315-cec6edfb-52d4-467a-8be1-0fc1d1e2fae4","path":"Event.json","metaData":{}}
+files[] = {"id":"27341315-368a2b2f-c6c3-4b97-bad1-39f8f2bb26d7","path":"Milestone.json","metaData":{}}
+files[] = {"id":"27341315-3cdfcb01-d5da-4fd0-9f17-50183f4bb451","path":"Trail.json","metaData":{}}
+files[] = {"id":"27341315-193384e8-c2ef-4612-93d9-3decfba3d878","path":"User.json","metaData":{}}
 
 [config.relations.collections.metaData]
 

@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "3cdfcb01-d5da-4fd0-9f17-50183f4bb451",
+		"name": "Trail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27341315-3cdfcb01-d5da-4fd0-9f17-50183f4bb451"
+	},
+	"item": [
+		{
+			"name": "insert trail",
+			"id": "b5b63b24-97a2-4bf0-a965-507d422050be",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"trail01\",\r\n    \"location\": \"location01\",\r\n    \"milestones\": [],\r\n    \"distance\": 2000,\r\n    \"description\": \"This is some description!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertTrail",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertTrail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get trail by id",
+			"id": "20fcdf68-f00a-4cd0-899e-9e69bb371e30",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/trails/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trails",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update trail",
+			"id": "6b9f556a-ca0a-4849-b8ce-ece685c01954",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"trail01\",\r\n    \"location\": \"location01\",\r\n    \"milestones\": [],\r\n    \"distance\": 3000,\r\n    \"description\": \"This is some description!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateTrail/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateTrail",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete trail  by id",
+			"id": "7a937633-1776-4ac9-8173-54427f5d88d5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteTrail/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteTrail",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

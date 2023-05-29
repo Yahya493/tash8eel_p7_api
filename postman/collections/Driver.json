@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "a1859417-e070-4b62-a0cf-58b37a8568e9",
+		"name": "Driver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27341315-a1859417-e070-4b62-a0cf-58b37a8568e9"
+	},
+	"item": [
+		{
+			"name": "insert driver",
+			"id": "3a6a00d9-5026-4d4b-9fc0-f55ecc9f826c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"driver01\",\r\n    \"phone\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertDriver",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertDriver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get driver by id",
+			"id": "1f688e7f-49fc-49e1-9c17-f153bfd504b5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/drivers/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"drivers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update driver",
+			"id": "03ccafca-1aea-47d9-9c06-7464c1e99d7b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"driver02\",\r\n    \"phone\": \"12345679\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateDriver/6473661fd0cf62207b97473a",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateDriver",
+						"6473661fd0cf62207b97473a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete driver by id",
+			"id": "c8518e2a-6374-43cb-90f4-b3dc131176de",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deletedriver/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deletedriver",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

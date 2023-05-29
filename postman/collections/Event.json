@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "cec6edfb-52d4-467a-8be1-0fc1d1e2fae4",
+		"name": "Event",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27341315-cec6edfb-52d4-467a-8be1-0fc1d1e2fae4"
+	},
+	"item": [
+		{
+			"name": "insert event",
+			"id": "0696128c-38bb-410a-9e99-55d3da03ef65",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"event01\",\r\n    \"validFrom\": \"2023-05-29T19:18:00\",\r\n    \"validTo\": \"2023-05-30T23:59:59\",\r\n    \"departureTime\": \"2023-05-29T19:18:00\",\r\n    \"arrivalTime\": \"2023-05-29T19:18:00\",\r\n    \"departureLocation\": \"tripoli\",\r\n    \"arrivalLocation\": \"tripoli\",\r\n    \"trail\": \"64736f31a58bc4cd2935962a\",\r\n    \"buses\": [\"6473631cff0bbe5571efa9d6\"],\r\n    \"numberOfPerson\": 30,\r\n    \"duration\": 120,\r\n    \"photos\": [\"photo01\", \"photo02\"],\r\n    \"fees\": 35,\r\n    \"publishDate\": \"2023-05-29T00:00:00\",\r\n    \"description\": \"This is some description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertEvent",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertEvent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get event by id",
+			"id": "81c713aa-f5dc-49ee-b722-15ee7cbb7a29",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/trails/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trails",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update event",
+			"id": "c2e42ebe-7bd1-430d-88e9-58aef4b68846",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"event01\",\r\n    \"validFrom\": \"2023-05-29T19:18:00\",\r\n    \"validTo\": \"2023-05-30T23:59:59\",\r\n    \"departureTime\": \"2023-05-29T19:18:00\",\r\n    \"arrivalTime\": \"2023-05-29T19:18:00\",\r\n    \"departureLocation\": \"tripoli\",\r\n    \"arrivalLocation\": \"tripoli\",\r\n    \"trail\": \"64736f31a58bc4cd2935962a\",\r\n    \"buses\": [\"6473631cff0bbe5571efa9d6\"],\r\n    \"numberOfPerson\": 30,\r\n    \"duration\": 120,\r\n    \"photos\": [\"photo01\", \"photo02\", \"photo03\"],\r\n    \"fees\": 35,\r\n    \"publishDate\": \"2023-05-29T00:00:00\",\r\n    \"description\": \"This is some description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateEvent/6474d1e62954d65efedae836",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateEvent",
+						"6474d1e62954d65efedae836"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete eventby id",
+			"id": "66af0d31-886e-4fda-a24a-20bd7f90140f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteEvent/6474d3ce2954d65efedae83a",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteEvent",
+						"6474d3ce2954d65efedae83a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

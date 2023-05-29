@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "193384e8-c2ef-4612-93d9-3decfba3d878",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27341315-193384e8-c2ef-4612-93d9-3decfba3d878"
+	},
+	"item": [
+		{
+			"name": "insert user",
+			"id": "6c352a24-df92-44d8-a914-e33659b18eca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"user01\",\r\n    \"password\": \"pass01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertUser",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by id",
+			"id": "fb43202f-2c7c-4cd2-afd4-71f294256db3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/users/6473657cd0cf62207b974734",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"6473657cd0cf62207b974734"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by name",
+			"id": "d07c77c8-6ae2-4fad-8c48-5ea06d8bd14d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/users?name=user01",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "user01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"id": "26046d5b-53fb-4874-ab8f-aaa5a2dbfd82",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"user02\",\r\n    \"password\": \"pass021\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateUser/6473657cd0cf62207b974734",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateUser",
+						"6473657cd0cf62207b974734"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user by id",
+			"id": "45942c7e-f656-468c-8c48-a42e59bc13dc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteUser/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteUser",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
