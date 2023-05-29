@@ -9,6 +9,7 @@ id = bded0939-a922-4d07-afcf-9f3cf9b479a7
 
 [config.relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"27341315-f44a9cf9-a05f-4833-aaee-74538bff6cbb","path":"tash8eel_p7_api.json","metaData":{}}
 
 [config.relations.collections.metaData]
 

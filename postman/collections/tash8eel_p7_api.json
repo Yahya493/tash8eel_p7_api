@@ -1,0 +1,717 @@
+{
+	"info": {
+		"_postman_id": "f44a9cf9-a05f-4833-aaee-74538bff6cbb",
+		"name": "tash8eel_p7_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "27341315-f44a9cf9-a05f-4833-aaee-74538bff6cbb"
+	},
+	"item": [
+		{
+			"name": "insert user",
+			"id": "d346b572-a4d7-4891-a91b-c8c4d18cbb97",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"user01\",\r\n    \"password\": \"pass01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertUser",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by id",
+			"id": "35842123-741f-4787-92fa-cf1ca8b80917",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/users/6473657cd0cf62207b974734",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"6473657cd0cf62207b974734"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by name",
+			"id": "dd73c408-da8c-4668-ad76-8151e700efc0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/users?name=user01",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "user01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"id": "e5fc6f64-0151-4bf9-91b7-e2adffda3b6a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"user02\",\r\n    \"password\": \"pass021\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateUser/6473657cd0cf62207b974734",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateUser",
+						"6473657cd0cf62207b974734"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user by id",
+			"id": "f3165511-309a-42f3-bd0c-ff8a7880ddf8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteUser/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteUser",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert driver",
+			"id": "1b867312-d9cf-47c9-93fd-214c40f3bec1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"driver01\",\r\n    \"phone\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertDriver",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertDriver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get driver by id",
+			"id": "b89151e9-7d49-4035-bd74-d8e5ba19c7c0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/drivers/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"drivers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update driver",
+			"id": "14b8b863-9422-42c0-8420-d8ea06db580f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"driver02\",\r\n    \"phone\": \"12345679\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateDriver/6473661fd0cf62207b97473a",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateDriver",
+						"6473661fd0cf62207b97473a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete driver by id",
+			"id": "f0519fe9-4d51-4621-805b-32328a1efb3f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deletedriver/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deletedriver",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert bus",
+			"id": "7a6a3450-36fd-4084-9aaa-df52a5c1458e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"bus01\",\r\n    \"driver\": \"647362a9ff0bbe5571efa9d4\",\r\n    \"seats\": \"30\",\r\n    \"description\": \"This is some description!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertBus",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertBus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get bus by id",
+			"id": "1d4b5dbe-71b9-4c5a-9b15-1b0f8af97204",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/buses/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"buses",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update bus",
+			"id": "f7a3d0ef-c0da-4213-89f5-4eb11920774e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"bus01\",\r\n    \"driver\": \"647362a9ff0bbe5571efa9d4\",\r\n    \"seats\": \"30\",\r\n    \"description\": \"This is some description!!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateBus/6473631cff0bbe5571efa9d6",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateBus",
+						"6473631cff0bbe5571efa9d6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete bus by id",
+			"id": "593f0841-32b8-4cb2-b8da-4d4077a3ba40",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteBus/64736665d0cf62207b97473f",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteBus",
+						"64736665d0cf62207b97473f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert milestone",
+			"id": "f7071cb6-b9bc-4fe4-8afb-fe1c5c2946fd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"milestone01\",\r\n    \"location\": \"location01\",\r\n    \"photos\": [],\r\n    \"description\": \"This is some description!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertMilestone",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertMilestone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get milestone by id",
+			"id": "7305aad6-c1f3-471c-a46e-5b6985e55906",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/milestones/64736acb3ac301fae7de7881",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"milestones",
+						"64736acb3ac301fae7de7881"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update milestone",
+			"id": "5887bd2e-4c83-4c17-b1d7-044f50e17ffd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"bus01\",\r\n    \"location\": \"location updated\",\r\n    \"photos\": [],\r\n    \"description\": \"This is some description updated\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateMilestone/64736acb3ac301fae7de7881",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateMilestone",
+						"64736acb3ac301fae7de7881"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete milestone by id",
+			"id": "760c9074-fd40-4ad0-8157-1dba2edc08f4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteMilestone/64736acb3ac301fae7de7881",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteMilestone",
+						"64736acb3ac301fae7de7881"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert trail",
+			"id": "8a6d50f5-3cc8-4f0c-94cd-3e43e51b4b68",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"trail01\",\r\n    \"location\": \"location01\",\r\n    \"milestones\": [],\r\n    \"distance\": 2000,\r\n    \"description\": \"This is some description!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertTrail",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertTrail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get trail by id",
+			"id": "64e6585f-5ecd-4db8-9616-d5671c3660f9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/trails/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trails",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update trail",
+			"id": "51d3126b-d41d-4196-b74e-8cca7f5a28de",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"trail01\",\r\n    \"location\": \"location01\",\r\n    \"milestones\": [],\r\n    \"distance\": 3000,\r\n    \"description\": \"This is some description!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateTrail/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateTrail",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete trail  by id",
+			"id": "e106d4de-31dd-4d7a-8bf9-9b60e30f575c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteTrail/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteTrail",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert event",
+			"id": "8f35f41c-1b2d-445e-9dd8-a0e039dc27ee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"event01\",\r\n    \"validFrom\": \"2023-05-29T19:18:00\",\r\n    \"validTo\": \"2023-05-30T23:59:59\",\r\n    \"departureTime\": \"2023-05-29T19:18:00\",\r\n    \"arrivalTime\": \"2023-05-29T19:18:00\",\r\n    \"departureLocation\": \"tripoli\",\r\n    \"arrivalLocation\": \"tripoli\",\r\n    \"trail\": \"64736f31a58bc4cd2935962a\",\r\n    \"buses\": [\"6473631cff0bbe5571efa9d6\"],\r\n    \"numberOfPerson\": 30,\r\n    \"duration\": 120,\r\n    \"photos\": [\"photo01\", \"photo02\"],\r\n    \"fees\": 35,\r\n    \"publishDate\": \"2023-05-29T00:00:00\",\r\n    \"description\": \"This is some description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/insertEvent",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"insertEvent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get event by id",
+			"id": "6c9adf8b-a2e0-4620-aad4-33af2f092620",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/trails/64736ea7a58bc4cd29359625",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"trails",
+						"64736ea7a58bc4cd29359625"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update event",
+			"id": "8f877d01-e649-4ea8-b22d-64bedf12702a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"event01\",\r\n    \"validFrom\": \"2023-05-29T19:18:00\",\r\n    \"validTo\": \"2023-05-30T23:59:59\",\r\n    \"departureTime\": \"2023-05-29T19:18:00\",\r\n    \"arrivalTime\": \"2023-05-29T19:18:00\",\r\n    \"departureLocation\": \"tripoli\",\r\n    \"arrivalLocation\": \"tripoli\",\r\n    \"trail\": \"64736f31a58bc4cd2935962a\",\r\n    \"buses\": [\"6473631cff0bbe5571efa9d6\"],\r\n    \"numberOfPerson\": 30,\r\n    \"duration\": 120,\r\n    \"photos\": [\"photo01\", \"photo02\", \"photo03\"],\r\n    \"fees\": 35,\r\n    \"publishDate\": \"2023-05-29T00:00:00\",\r\n    \"description\": \"This is some description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/updateEvent/6474d1e62954d65efedae836",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"updateEvent",
+						"6474d1e62954d65efedae836"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete eventby id",
+			"id": "225f51a5-148e-4b02-a4de-2a4998f04f5a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/deleteEvent/6474d3ce2954d65efedae83a",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"deleteEvent",
+						"6474d3ce2954d65efedae83a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
