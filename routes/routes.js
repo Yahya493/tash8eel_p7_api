@@ -4,6 +4,7 @@ const { insertDriver, deleteDriver, getDriverById, updateDriver } = require('../
 const { insertBus, deleteBus, getBusById, updateBus } = require('../helpers/busHelper')
 const { insertMilestone, deleteMilestone, getMilestoneById, updateMilestone } = require('../helpers/milestoneHelper')
 const { insertTrail, deleteTrail, getTrailById, updateTrail } = require('../helpers/trailHelper')
+const { insertEvent, deleteEvent, getEventById, updateEvent } = require('../helpers/eventHelper')
 const router = express.Router()
 module.exports = router
 
@@ -32,3 +33,8 @@ router.post('/insertTrail', insertTrail)
 router.delete('/deleteTrail/:id', deleteTrail)
 router.get('/trails/:id', getTrailById)
 router.patch('/updateTrail/:id', updateTrail)
+
+router.post('/insertEvent', insertEvent)
+router.delete('/deleteEvent/:id', deleteEvent)
+router.get('/events/:id', getEventById)
+router.patch('/updateEvent/:id', updateEvent)
