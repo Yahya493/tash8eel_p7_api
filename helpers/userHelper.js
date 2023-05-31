@@ -27,7 +27,7 @@ const insertUser = async (req, res) => {
 const getUserById = async (req, res) => {
     try {
         const user = await User.findById(req.params.id)
-        res.send(user)
+        res.send(user==null?{}:user)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
