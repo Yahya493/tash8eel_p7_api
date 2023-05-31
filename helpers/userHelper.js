@@ -37,7 +37,8 @@ const getUserById = async (req, res) => {
 const getUserByName = async (req, res) => {
     try {
         const users = await User.find({name: req.query.name})
-        res.send(users[0])
+        const user = users.length===0?{}:users[0]
+        res.send(user)
     }
     catch (error) {
         res.status(400).json({ message: error.message })

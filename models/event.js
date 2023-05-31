@@ -61,6 +61,10 @@ const dataSchema = new mongoose.Schema({
         required: false,
         type: String
     },
+    user: {
+        required: true,
+        type: String
+    }
 })
 
 module.exports = mongoose.model('event', dataSchema)

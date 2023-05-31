@@ -9,6 +9,10 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    user: {
+        required: true,
+        type: String
+    }
 })
 
 module.exports = mongoose.model('driver', dataSchema)

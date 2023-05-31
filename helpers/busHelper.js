@@ -5,7 +5,8 @@ const insertBus = async (req, res) => {
         name: req.body.name,
         driver: req.body.driver,
         seats: req.body.seats,
-        description: req.body.description
+        description: req.body.description,
+        user: req.body.user,
     })
 
     try {
@@ -21,6 +22,16 @@ const getBusById = async (req, res) => {
     try {
         const bus = await Bus.findById(req.params.id)
         res.send(bus)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+const getBusesByUser = async (req, res) => {
+    try {
+        const buses = await Bus.find({user: req.query.user})
+        res.send(buses)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
@@ -45,7 +56,8 @@ const updateBus = async (req, res) => {
             name: req.body.name,
             driver: req.body.driver,
             seats: req.body.seats,
-            description: req.body.description
+            description: req.body.description,
+            user: req.body.user,
         }
         const options = {new: true}
 
@@ -60,6 +72,7 @@ const updateBus = async (req, res) => {
 module.exports = {
     insertBus,
     getBusById,
+    getBusesByUser,
     deleteBus,
     updateBus,
 

@@ -4,6 +4,7 @@ const insertDriver = async (req, res) => {
     const driver = new Driver({
         name: req.body.name,
         phone: req.body.phone,
+        user: req.body.user,
     })
 
     try {
@@ -19,6 +20,16 @@ const getDriverById = async (req, res) => {
     try {
         const driver = await Driver.findById(req.params.id)
         res.send(driver)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+const getDriversByUser = async (req, res) => {
+    try {
+        const drivers = await Driver.find({user: req.query.user})
+        res.send(drivers)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
@@ -42,6 +53,7 @@ const updateDriver = async (req, res) => {
         const updatedDriver = {
             name: req.body.name,
             phone: req.body.phone,
+            user: req.body.user,
         }
         const options = {new: true}
 
@@ -56,6 +68,7 @@ const updateDriver = async (req, res) => {
 module.exports = {
     insertDriver,
     getDriverById,
+    getDriversByUser,
     deleteDriver,
     updateDriver,
 
