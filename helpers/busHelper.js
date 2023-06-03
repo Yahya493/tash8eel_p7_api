@@ -38,6 +38,19 @@ const getBusesByUser = async (req, res) => {
     }
 }
 
+const getBusesByDriver = async (req, res) => {
+    try {
+        const buses = await Bus.find({
+            user: req.query.user,
+            driver: req.query.driver,
+        })
+        res.send(buses)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
 const deleteBus = async (req, res) => {
     try {
         const bus = await Bus.findByIdAndRemove(req.params.id)
@@ -73,6 +86,7 @@ module.exports = {
     insertBus,
     getBusById,
     getBusesByUser,
+    getBusesByDriver,
     deleteBus,
     updateBus,
 
