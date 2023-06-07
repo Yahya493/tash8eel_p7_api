@@ -31,7 +31,7 @@ const insertEvent = async (req, res) => {
 
 const getEventById = async (req, res) => {
     try {
-        const event = await Event.findById(req.params.id)
+        const event = await Event.findById(req.body._id)
         res.send(event)
     }
     catch (error) {
@@ -41,12 +41,26 @@ const getEventById = async (req, res) => {
 
 const getEventsByUser = async (req, res) => {
     try {
-        const events = await Event.find({user: req.query.user})
+        const events = await Event.find({user: req.body.user})
         res.send(events)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
     }
+}
+
+const getEvents = async (req, res) => {
+    if(req.body._id) {
+        getEventById(req, res)
+        return
+    }
+
+    if(req.body.user) {
+        getEventsByUser(req, res)
+        return
+    }
+
+    res.send({})
 }
 
 const deleteEvent = async (req, res) => {
@@ -62,7 +76,7 @@ const deleteEvent = async (req, res) => {
 
 const updateEvent = async (req, res) => {
     try {
-        const id = req.params.id
+        const id = req.body._id
         const updatedEvent = {
             name: req.body.name,
             validFrom: req.body.validFrom,
@@ -93,8 +107,7 @@ const updateEvent = async (req, res) => {
 
 module.exports = {
     insertEvent,
-    getEventById,
-    getEventsByUser,
+    getEvents,
     deleteEvent,
     updateEvent,
 

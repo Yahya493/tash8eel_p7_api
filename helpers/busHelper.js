@@ -20,7 +20,7 @@ const insertBus = async (req, res) => {
 
 const getBusById = async (req, res) => {
     try {
-        const bus = await Bus.findById(req.params.id)
+        const bus = await Bus.findById(req.body._id)
         res.send(bus)
     }
     catch (error) {
@@ -30,7 +30,7 @@ const getBusById = async (req, res) => {
 
 const getBusesByUser = async (req, res) => {
     try {
-        const buses = await Bus.find({user: req.query.user})
+        const buses = await Bus.find({user: req.body.user})
         res.send(buses)
     }
     catch (error) {
@@ -41,14 +41,33 @@ const getBusesByUser = async (req, res) => {
 const getBusesByDriver = async (req, res) => {
     try {
         const buses = await Bus.find({
-            user: req.query.user,
-            driver: req.query.driver,
+            user: req.body.user,
+            driver: req.body.driver,
         })
         res.send(buses)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
     }
+}
+
+const getBuses = async (req, res) => {
+    if(req.body._id) {
+        getBusById(req, res)
+        return
+    }
+
+    if(req.body.driver && req.body.user) {
+        getBusesByDriver(req, res)
+        return
+    }
+
+    if(req.body.user) {
+        getBusesByUser(req, res)
+        return
+    }
+
+    res.send({})
 }
 
 const deleteBus = async (req, res) => {
@@ -64,7 +83,7 @@ const deleteBus = async (req, res) => {
 
 const updateBus = async (req, res) => {
     try {
-        const id = req.params.id
+        const id = req.body._id
         const updatedBus = {
             name: req.body.name,
             driver: req.body.driver,
@@ -84,9 +103,7 @@ const updateBus = async (req, res) => {
 
 module.exports = {
     insertBus,
-    getBusById,
-    getBusesByUser,
-    getBusesByDriver,
+    getBuses,
     deleteBus,
     updateBus,
 

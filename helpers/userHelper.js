@@ -26,7 +26,7 @@ const insertUser = async (req, res) => {
 
 const getUserById = async (req, res) => {
     try {
-        const user = await User.findById(req.params.id)
+        const user = await User.findById(req.body._id)
         res.send(user==null?{}:user)
     }
     catch (error) {
@@ -36,13 +36,27 @@ const getUserById = async (req, res) => {
 
 const getUserByName = async (req, res) => {
     try {
-        const users = await User.find({name: req.query.name})
+        const users = await User.find({name: req.body.name})
         const user = users.length===0?{}:users[0]
         res.send(user)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
     }
+}
+
+const getUser = async (req, res) => {
+    if(req.body._id) {
+        getUserById(req, res)
+        return
+    }
+
+    if(req.body.name) {
+        getUserByName(req, res)
+        return
+    }
+
+    res.send({})
 }
 
 const deleteUser = async (req, res) => {
@@ -58,7 +72,7 @@ const deleteUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     try {
-        const id = req.params.id
+        const id = req.body._id
         const updatedUser = {
             name: req.body.name,
             password: req.body.password,
@@ -77,6 +91,7 @@ module.exports = {
     insertUser,
     getUserById,
     getUserByName,
+    getUser,
     deleteUser,
     updateUser,
 
