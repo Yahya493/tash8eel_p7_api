@@ -14,7 +14,7 @@ const insertEvent = async (req, res) => {
         buses: req.body.buses,
         numberOfPerson: req.body.numberOfPerson,
         duration: req.body.duration,
-        // photos: req.body.photos,
+        photos: req.body.photos,
         fees: req.body.fees,
         publishDate: req.body.publishDate,
         description: req.body.description,
