@@ -4,7 +4,7 @@ const { insertDriver, deleteDriver, getDrivers, updateDriver } = require('../hel
 const { insertBus, deleteBus, getBuses, updateBus } = require('../helpers/busHelper')
 const { insertMilestone, deleteMilestone, getMilestoneById, updateMilestone } = require('../helpers/milestoneHelper')
 const { insertTrail, deleteTrail, getTrailById, updateTrail } = require('../helpers/trailHelper')
-const { insertEvent, deleteEvent, getEvents, updateEvent } = require('../helpers/eventHelper')
+const { insertEvent, deleteEvent, getEvents, updateEvent, getAllEvents } = require('../helpers/eventHelper')
 const router = express.Router()
 module.exports = router
 
@@ -38,5 +38,32 @@ router.patch('/updateTrail/:id', updateTrail)
 router.post('/insertEvent', insertEvent)
 router.delete('/deleteEvent/:id', deleteEvent)
 router.post('/events', getEvents)
-// router.get('/events', getEventsByUser)
+router.get('/events', getAllEvents)
 router.patch('/updateEvent', updateEvent)
+
+
+
+const multer = require('multer');
+const path = require('path')
+const PORT = process.env.PORT || 3000
+const API_URL = process.env.API_URL + ':' + PORT
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "./uploads")
+    },
+    filename: (req, file ,cb) => {
+        // console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    }
+})
+const upload = multer({ storage: storage});
+
+router.post('/upload', upload.single('file'), (req, res) => {
+
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file uploaded' });
+    }
+    const fileURL = `${API_URL}/${req.file.path.replace('\\', '/')}`
+
+    res.status(200).send({ url: fileURL });
+})

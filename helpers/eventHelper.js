@@ -1,4 +1,5 @@
 const Event = require('../models/event')
+const { findById } = require('../models/user')
 
 const insertEvent = async (req, res) => {
     const event = new Event({
@@ -13,7 +14,7 @@ const insertEvent = async (req, res) => {
         buses: req.body.buses,
         numberOfPerson: req.body.numberOfPerson,
         duration: req.body.duration,
-        photos: req.body.photos,
+        // photos: req.body.photos,
         fees: req.body.fees,
         publishDate: req.body.publishDate,
         description: req.body.description,
@@ -41,7 +42,7 @@ const getEventById = async (req, res) => {
 
 const getEventsByUser = async (req, res) => {
     try {
-        const events = await Event.find({user: req.body.user})
+        const events = await Event.find({ user: req.body.user })
         res.send(events)
     }
     catch (error) {
@@ -50,17 +51,27 @@ const getEventsByUser = async (req, res) => {
 }
 
 const getEvents = async (req, res) => {
-    if(req.body._id) {
+    if (req.body._id) {
         getEventById(req, res)
         return
     }
 
-    if(req.body.user) {
+    if (req.body.user) {
         getEventsByUser(req, res)
         return
     }
 
     res.send({})
+}
+
+const getAllEvents = async (req, res) => {
+    try {
+        const events = await Event.find()
+        res.send(events)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 }
 
 const deleteEvent = async (req, res) => {
@@ -105,10 +116,29 @@ const updateEvent = async (req, res) => {
     }
 }
 
+// const uploadPhotoToEvent = async (req, res, fileURL) => {
+//     try {
+//         const id = req.body._id
+//         const event = await Event.findById(id)
+//         const updatedEvent = {
+//             // ...event,
+//             photos: [...event.photos, `${fileURL}`]
+//         }
+//         const options = { new: true }
+
+//         const data = await Event.findByIdAndUpdate(id, updatedEvent, options)
+//         res.send(data)
+//     }
+//     catch (error) {
+//         res.status(400).json({ message: error.message })
+//     }
+// }
+
 module.exports = {
     insertEvent,
     getEvents,
+    getAllEvents,
     deleteEvent,
     updateEvent,
-
+    // uploadPhotoToEvent,
 }
