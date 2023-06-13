@@ -10,6 +10,14 @@ const DATABASE_URL = process.env.DATABASE_URL
 
 const app = express()
 app.use(cors())
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // Allow requests from all domains (*)
+    // res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE'); // Allow specific HTTP methods
+    // res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); // Allow specific headers
+    next();
+});
+
 app.use(express.json())
 app.use('/uploads', express.static('uploads'));
 
