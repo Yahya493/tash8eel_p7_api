@@ -1,4 +1,5 @@
 const Event = require('../models/event')
+const Photo = require('../models/photo')
 const { findById } = require('../models/user')
 
 const insertEvent = async (req, res) => {
@@ -76,7 +77,14 @@ const getAllEvents = async (req, res) => {
 
 const deleteEvent = async (req, res) => {
     try {
-        const event = await Event.findByIdAndRemove(req.params.id)
+        const event = await Event.findById(req.params.id)
+        if (event) {
+            for (const photoId of event.photos) {
+                await Photo.findByIdAndDelete(photoId)
+            }
+
+            await Event.findByIdAndRemove(req.params.id)
+        }
         const status = event ? 'deleted' : 'not found'
         res.send({ status: status, data: event })
     }

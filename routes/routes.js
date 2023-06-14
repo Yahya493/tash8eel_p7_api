@@ -5,6 +5,7 @@ const { insertBus, deleteBus, getBuses, updateBus } = require('../helpers/busHel
 const { insertMilestone, deleteMilestone, getMilestoneById, updateMilestone } = require('../helpers/milestoneHelper')
 const { insertTrail, deleteTrail, getTrailById, updateTrail } = require('../helpers/trailHelper')
 const { insertEvent, deleteEvent, getEvents, updateEvent, getAllEvents } = require('../helpers/eventHelper')
+const { insertPhoto, deletePhoto, getPhotos } = require('../helpers/photoHelper')
 const router = express.Router()
 module.exports = router
 
@@ -41,29 +42,33 @@ router.post('/events', getEvents)
 router.get('/events', getAllEvents)
 router.patch('/updateEvent', updateEvent)
 
+///
+router.post('/uploadPhoto', insertPhoto)
+router.post('/photos', getPhotos)
+router.delete('/deletePhoto', deletePhoto)
+///
 
+// const multer = require('multer');
+// const path = require('path')
+// const PORT = process.env.PORT || 3000
+// const API_URL = process.env.API_URL + ':' + PORT
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, "./uploads")
+//     },
+//     filename: (req, file ,cb) => {
+//         // console.log(file)
+//         cb(null, Date.now() + path.extname(file.originalname))
+//     }
+// })
+// const upload = multer({ storage: storage});
 
-const multer = require('multer');
-const path = require('path')
-const PORT = process.env.PORT || 3000
-const API_URL = process.env.API_URL + ':' + PORT
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "./uploads")
-    },
-    filename: (req, file ,cb) => {
-        // console.log(file)
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-})
-const upload = multer({ storage: storage});
+// router.post('/upload', upload.single('file'), (req, res) => {
 
-router.post('/upload', upload.single('file'), (req, res) => {
+//     if (!req.file) {
+//         return res.status(400).json({ error: 'No file uploaded' });
+//     }
+//     const fileURL = `${API_URL}/${req.file.path.replace('\\', '/')}`
 
-    if (!req.file) {
-        return res.status(400).json({ error: 'No file uploaded' });
-    }
-    const fileURL = `${API_URL}/${req.file.path.replace('\\', '/')}`
-
-    res.status(200).send({ url: fileURL });
-})
+//     res.status(200).send({ url: fileURL });
+// })

@@ -3,13 +3,21 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const routes = require('./routes/routes')
 const cors = require('cors')
+const bodyParser = require('body-parser')
 // const fileUpload = require('express-fileupload');
 
 const PORT = process.env.PORT || 3000
 const DATABASE_URL = process.env.DATABASE_URL
 
+const options = {
+    limit: '10mb'
+}
+
 const app = express()
 app.use(cors())
+
+app.use(bodyParser.urlencoded({ ...options, extended: false }))
+app.use(bodyParser.json(options))
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // Allow requests from all domains (*)
@@ -19,11 +27,11 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json())
-app.use('/uploads', express.static('uploads'));
+// app.use('/uploads', express.static('uploads'));
 
 app.use('/api', routes)
 
-app.listen(PORT, () => {console.log(`Server started at ${PORT}`)})
+app.listen(PORT, () => { console.log(`Server started at ${PORT}`) })
 
 mongoose.connect(DATABASE_URL)
 const database = mongoose.connection
