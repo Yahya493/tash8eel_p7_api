@@ -28,6 +28,30 @@ const getTrailById = async (req, res) => {
     }
 }
 
+const getTrailByUser = async (req, res) => {
+    try {
+        const trail = await Trail.find(req.body.user)
+        res.send(trail)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+const getTrails = async (req, res) => {
+    if(req.body._id) {
+        getTrailById(req, res)
+        return
+    }
+
+    if(req.body.user) {
+        getTrailByUser(req, res)
+        return
+    }
+
+    res.send({})
+}
+
 const deleteTrail = async (req, res) => {
     try {
         const trail = await Trail.findByIdAndRemove(req.body._id)
@@ -61,7 +85,7 @@ const updateTrail = async (req, res) => {
 
 module.exports = {
     insertTrail,
-    getTrailById,
+    getTrails,
     deleteTrail,
     updateTrail,
 

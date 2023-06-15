@@ -17,6 +17,10 @@ const dataSchema = new mongoose.Schema({
         required: false,
         type: Number
     },
+    user: {
+        required: true,
+        type: String
+    },
     description: {
         required: false,
         type: String

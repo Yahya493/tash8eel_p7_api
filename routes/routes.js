@@ -3,7 +3,7 @@ const { insertUser, deleteUser, getUser, updateUser } = require('../helpers/user
 const { insertDriver, deleteDriver, getDrivers, updateDriver } = require('../helpers/driverHelper')
 const { insertBus, deleteBus, getBuses, updateBus } = require('../helpers/busHelper')
 const { insertMilestone, deleteMilestone, getMilestoneById, updateMilestone } = require('../helpers/milestoneHelper')
-const { insertTrail, deleteTrail, getTrailById, updateTrail } = require('../helpers/trailHelper')
+const { insertTrail, deleteTrail, getTrails, updateTrail } = require('../helpers/trailHelper')
 const { insertEvent, deleteEvent, getEvents, updateEvent, getAllEvents } = require('../helpers/eventHelper')
 const { insertPhoto, deletePhoto, getPhotos } = require('../helpers/photoHelper')
 const router = express.Router()
@@ -33,7 +33,7 @@ router.patch('/updateMilestone', updateMilestone)
 
 router.post('/insertTrail', insertTrail)
 router.delete('/deleteTrail', deleteTrail)
-router.get('/trails', getTrailById)
+router.post('/trails', getTrails)
 router.patch('/updateTrail', updateTrail)
 
 router.post('/insertEvent', insertEvent)
