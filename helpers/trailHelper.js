@@ -6,6 +6,7 @@ const insertTrail = async (req, res) => {
         // location: req.body.location,
         // milestones: req.body.milestones,
         distance: req.body.distance,
+        user: req.body.user,
         description: req.body.description
     })
 
@@ -71,6 +72,7 @@ const updateTrail = async (req, res) => {
             // location: req.body.location,
             // milestones: req.body.milestones,
             distance: req.body.distance,
+            user: req.body.user,
             description: req.body.description
         }
         const options = { new: true }
