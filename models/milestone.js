@@ -13,6 +13,10 @@ const dataSchema = new mongoose.Schema({
         required: false,
         type: Array
     },
+    trail: {
+        required: true,
+        type: String
+    },
     description: {
         required: false,
         type: String

@@ -5,16 +5,16 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    location: {
-        required: true,
-        type: String
-    },
-    milestones: {
-        required: true,
-        type: Array
-    },
+    // location: {
+    //     required: true,
+    //     type: String
+    // },
+    // milestones: {
+    //     required: true,
+    //     type: Array
+    // },
     distance: {
-        required: true,
+        required: false,
         type: Number
     },
     description: {

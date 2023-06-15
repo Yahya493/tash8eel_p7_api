@@ -5,6 +5,7 @@ const insertMilestone = async (req, res) => {
         name: req.body.name,
         location: req.body.location,
         photos: req.body.photos,
+        trail: req.body.trail,
         description: req.body.description
     })
 
@@ -19,7 +20,7 @@ const insertMilestone = async (req, res) => {
 
 const getMilestoneById = async (req, res) => {
     try {
-        const milestone = await Milestone.findById(req.params.id)
+        const milestone = await Milestone.findById(req.body._id)
         res.send(milestone)
     }
     catch (error) {
@@ -29,7 +30,7 @@ const getMilestoneById = async (req, res) => {
 
 const deleteMilestone = async (req, res) => {
     try {
-        const milestone = await Milestone.findByIdAndRemove(req.params.id)
+        const milestone = await Milestone.findByIdAndRemove(req.body._id)
         const status = milestone?'deleted':'not found'
         res.send({status: status, data:milestone})
     }
@@ -40,11 +41,12 @@ const deleteMilestone = async (req, res) => {
 
 const updateMilestone = async (req, res) => {
     try {
-        const id = req.params.id
+        const id = req.body._id
         const updatedMilestone = {
             name: req.body.name,
             location: req.body.location,
             photos: req.body.photos,
+            trail: req.body.trail,
             description: req.body.description
         }
         const options = {new: true}

@@ -3,8 +3,8 @@ const Trail = require('../models/trail')
 const insertTrail = async (req, res) => {
     const trail = new Trail({
         name: req.body.name,
-        location: req.body.location,
-        milestones: req.body.milestones,
+        // location: req.body.location,
+        // milestones: req.body.milestones,
         distance: req.body.distance,
         description: req.body.description
     })
@@ -20,7 +20,7 @@ const insertTrail = async (req, res) => {
 
 const getTrailById = async (req, res) => {
     try {
-        const trail = await Trail.findById(req.params.id)
+        const trail = await Trail.findById(req.body._id)
         res.send(trail)
     }
     catch (error) {
@@ -30,7 +30,7 @@ const getTrailById = async (req, res) => {
 
 const deleteTrail = async (req, res) => {
     try {
-        const trail = await Trail.findByIdAndRemove(req.params.id)
+        const trail = await Trail.findByIdAndRemove(req.body._id)
         const status = trail ? 'deleted' : 'not found'
         res.send({ status: status, data: trail })
     }
@@ -41,11 +41,11 @@ const deleteTrail = async (req, res) => {
 
 const updateTrail = async (req, res) => {
     try {
-        const id = req.params.id
+        const id = req.body._id
         const updatedTrail = {
             name: req.body.name,
-            location: req.body.location,
-            milestones: req.body.milestones,
+            // location: req.body.location,
+            // milestones: req.body.milestones,
             distance: req.body.distance,
             description: req.body.description
         }
