@@ -31,7 +31,7 @@ const getTrailById = async (req, res) => {
 
 const getTrailByUser = async (req, res) => {
     try {
-        const trail = await Trail.find(req.body.user)
+        const trail = await Trail.find({user: req.body.user})
         res.send(trail)
     }
     catch (error) {
