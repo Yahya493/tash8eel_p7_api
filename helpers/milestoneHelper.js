@@ -54,7 +54,14 @@ const getMilestones = async (req, res) => {
 
 const deleteMilestone = async (req, res) => {
     try {
-        const milestone = await Milestone.findByIdAndRemove(req.body._id)
+        const milestone = await Milestone.findById(req.body._id)
+        if (milestone) {
+            for (const photoId of milestone.photos) {
+                await Photo.findByIdAndDelete(photoId)
+            }
+
+            await Milestone.findByIdAndRemove(req.body._id)
+        }
         const status = milestone ? 'deleted' : 'not found'
         res.send({ status: status, data: milestone })
     }
