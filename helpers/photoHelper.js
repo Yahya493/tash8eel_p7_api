@@ -38,6 +38,16 @@ const getPhotosBySource = async (req, res) => {
     }
 }
 
+const getNumberOfPhotos = async (req, res) => {
+    try {
+        const photos = await Photo.find()
+        res.send(photos.length)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
 const getPhotos = async (req, res) => {
     if (req.body._id) {
         getPhotoById(req, res)
@@ -62,17 +72,6 @@ const deletePhoto = async (req, res) => {
     catch (error) {
         res.status(400).json({ message: error.message })
     }
-}
-
-const getNumberOfPhotos = async (req, res) => {
-    try {
-        const photos = await Photo.find()
-        res.send(photos.length)
-    }
-    catch (error) {
-        res.status(400).json({ message: error.message })
-    }
-
 }
 
 module.exports = {
