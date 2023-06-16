@@ -1,5 +1,6 @@
 const Trail = require('../models/trail')
 const Milestone = require('../models/milestone')
+const Photo = require('../models/photo')
 
 const insertTrail = async (req, res) => {
     const trail = new Trail({
@@ -59,11 +60,13 @@ const deleteTrail = async (req, res) => {
         const milestones = await Milestone.find({ trail: req.body._id })
         if (milestones) {
             for (const milestone of milestones) {
+                for (const photoId of milestone.photos) {
+                    await Photo.findByIdAndDelete(photoId)
+                }
                 await Milestone.findByIdAndDelete(milestone._id)
             }
 
         }
-        
         const trail = await Trail.findByIdAndRemove(req.body._id)
         const status = trail ? 'deleted' : 'not found'
         res.send({ status: status, data: trail })
