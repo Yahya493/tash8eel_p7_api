@@ -28,11 +28,35 @@ const getMilestoneById = async (req, res) => {
     }
 }
 
+const getMilestonesByTrail = async (req, res) => {
+    try {
+        const milestones = await Milestone.find({ trail: req.body.trail })
+        res.send(milestones)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+const getMilestones = async (req, res) => {
+    if (req.body._id) {
+        getMilestoneById(req, res)
+        return
+    }
+
+    if (req.body.trail) {
+        getMilestonesByTrail(req, res)
+        return
+    }
+
+    res.send({})
+}
+
 const deleteMilestone = async (req, res) => {
     try {
         const milestone = await Milestone.findByIdAndRemove(req.body._id)
-        const status = milestone?'deleted':'not found'
-        res.send({status: status, data:milestone})
+        const status = milestone ? 'deleted' : 'not found'
+        res.send({ status: status, data: milestone })
     }
     catch (error) {
         res.status(400).json({ message: error.message })
@@ -49,7 +73,7 @@ const updateMilestone = async (req, res) => {
             trail: req.body.trail,
             description: req.body.description
         }
-        const options = {new: true}
+        const options = { new: true }
 
         const data = await Milestone.findByIdAndUpdate(id, updatedMilestone, options)
         res.send(data)
@@ -61,7 +85,7 @@ const updateMilestone = async (req, res) => {
 
 module.exports = {
     insertMilestone,
-    getMilestoneById,
+    getMilestones,
     deleteMilestone,
     updateMilestone,
 
