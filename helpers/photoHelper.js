@@ -9,7 +9,7 @@ const insertPhoto = async (req, res) => {
 
     try {
         const dataToSave = await photo.save()
-        res.status(200).json({_id: dataToSave._id})
+        res.status(200).json({ _id: dataToSave._id })
     }
     catch (error) {
         res.status(400).json({ message: error.message })
@@ -30,7 +30,7 @@ const getPhotosBySource = async (req, res) => {
     const sourceType = req.body.sourceType
     const sourceId = req.body.sourceId
     try {
-        const photo = await Photo.find({sourceType: sourceType, sourceId: sourceId})
+        const photo = await Photo.find({ sourceType: sourceType, sourceId: sourceId })
         res.send(photo == null ? {} : photo)
     }
     catch (error) {
@@ -39,17 +39,18 @@ const getPhotosBySource = async (req, res) => {
 }
 
 const getPhotos = async (req, res) => {
-    if(req.body._id) {
+    if (req.body._id) {
         getPhotoById(req, res)
         return
     }
 
-    if(req.body.sourceType && req.body.sourceId) {
+    if (req.body.sourceType && req.body.sourceId) {
         getPhotosBySource(req, res)
         return
     }
 
-    res.send({})
+    getNumberOfPhotos(req, res)
+    // res.send({})
 }
 
 const deletePhoto = async (req, res) => {
@@ -61,6 +62,17 @@ const deletePhoto = async (req, res) => {
     catch (error) {
         res.status(400).json({ message: error.message })
     }
+}
+
+const getNumberOfPhotos = async (req, res) => {
+    try {
+        const photos = await Photo.find()
+        res.send(photos.length)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+
 }
 
 module.exports = {
