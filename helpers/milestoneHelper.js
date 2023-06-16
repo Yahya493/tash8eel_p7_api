@@ -1,4 +1,5 @@
 const Milestone = require('../models/milestone')
+const Photo = require('../models/photo')
 
 const insertMilestone = async (req, res) => {
     const milestone = new Milestone({
