@@ -41,7 +41,7 @@ const getPhotosBySource = async (req, res) => {
 const getNumberOfPhotos = async (req, res) => {
     try {
         const photos = await Photo.find()
-        res.send(photos?photos.length:0)
+        res.send({number: photos.length})
     }
     catch (error) {
         res.status(400).json({ message: error.message })
