@@ -5,10 +5,18 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    // location: {
-    //     required: true,
-    //     type: String
-    // },
+    difficulty: {
+        required: false,
+        type: String
+    },
+    minHeight: {
+        required: false,
+        type: Number
+    },
+    maxHeight: {
+        required: false,
+        type: Number
+    },
     // milestones: {
     //     required: true,
     //     type: Array

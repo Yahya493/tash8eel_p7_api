@@ -9,6 +9,10 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    type: {
+        required: true,
+        type: String
+    },
     photos: {
         required: false,
         type: Array

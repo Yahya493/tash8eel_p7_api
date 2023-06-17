@@ -5,6 +5,7 @@ const insertMilestone = async (req, res) => {
     const milestone = new Milestone({
         name: req.body.name,
         location: req.body.location,
+        type: req.body.type,
         photos: req.body.photos,
         trail: req.body.trail,
         description: req.body.description
@@ -77,6 +78,7 @@ const updateMilestone = async (req, res) => {
         const updatedMilestone = {
             name: req.body.name,
             location: req.body.location,
+            type: req.body.type,
             photos: req.body.photos,
             trail: req.body.trail,
             description: req.body.description

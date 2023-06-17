@@ -5,7 +5,9 @@ const Photo = require('../models/photo')
 const insertTrail = async (req, res) => {
     const trail = new Trail({
         name: req.body.name,
-        // location: req.body.location,
+        difficulty: req.body.difficulty,
+        minHeight: req.body.minHeight,
+        maxHeight: req.body.maxHeight,
         // milestones: req.body.milestones,
         distance: req.body.distance,
         user: req.body.user,
@@ -81,7 +83,9 @@ const updateTrail = async (req, res) => {
         const id = req.body._id
         const updatedTrail = {
             name: req.body.name,
-            // location: req.body.location,
+            difficulty: req.body.difficulty,
+            minHeight: req.body.minHeight,
+            maxHeight: req.body.maxHeight,
             // milestones: req.body.milestones,
             distance: req.body.distance,
             user: req.body.user,
